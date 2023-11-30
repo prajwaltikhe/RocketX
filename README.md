@@ -1,3 +1,3 @@
 # ROCKETX React App
 
-<img width="947" alt="Demo" src="https://github.com/PrajwalTikhe1/RocketX/assets/72973991/ddd83e31-1a61-4d76-aebd-c3e607b14ad8">
+<img width="946" alt="Demo" src="https://github.com/PrajwalTikhe1/RocketX/assets/72973991/3e7d829b-ae5b-430f-90a5-96b2007ae60f">
