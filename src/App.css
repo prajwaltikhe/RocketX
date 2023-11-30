@@ -1,0 +1,81 @@
+.App {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #283e51;
+  background: -webkit-linear-gradient(to top, #283e51, #0a2342);
+  background: linear-gradient(to top, #283e51, #0a2342);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.head {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  text-align: center;
+  color: #fff;
+  margin: 1.25rem 0;
+}
+
+.search {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.searchbar {
+  height: 3rem;
+  font-size: 1rem;
+  padding-left: 0.625rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card {
+  margin-bottom: 2rem;
+}
+
+.card img {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  margin-top: 0.7rem;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.references {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.spinner-border {
+  width: 4rem;
+  height: 4rem;
+  margin: 2rem auto;
+}
+
+@media (max-width: 768px) {
+  .search {
+    max-width: 100%;
+  }
+
+  .card img {
+    width: 100%;
+  }
+}
