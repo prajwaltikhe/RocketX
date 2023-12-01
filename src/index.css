@@ -54,9 +54,6 @@ code {
 
 .card-title {
   font-family: 'Playfair Display', serif;
-  margin-top: 0.7rem;
-  font-weight: bold;
-  font-size: 1.4rem;
 }
 
 .references {
@@ -76,6 +73,6 @@ code {
   }
 
   .card img {
-    width: 100%;
+    width: 60%;
   }
 }

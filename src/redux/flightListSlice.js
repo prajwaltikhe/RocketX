@@ -1,12 +1,16 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const flightList = createAsyncThunk('flights/flightList', async () => {
-  const response = await axios.get('https://api.spacexdata.com/v3/launches');
-  return response.data;
+  try {
+    const response = await axios.get('https://api.spacexdata.com/v3/launches');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 });
 
-export const flightListSlice = createSlice({
+const flightListSlice = createSlice({
   name: 'flight',
   initialState: {
     flights: [],
@@ -14,24 +18,22 @@ export const flightListSlice = createSlice({
     error: false,
   },
   reducers: {},
-  extraReducers: {
-    [flightList.pending]: (state) => {
-      state.pending = true;
-      state.flights = [];
-      state.error = false;
-    },
-    [flightList.fulfilled]: (state, action) => {
-      state.pending = false;
-      state.flights = action.payload;
-    },
-    [flightList.rejected]: (state) => {
-      state.pending = false;
-      state.error = true;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(flightList.pending, (state) => {
+        state.pending = true;
+        state.flights = [];
+        state.error = false;
+      })
+      .addCase(flightList.fulfilled, (state, action) => {
+        state.pending = false;
+        state.flights = action.payload;
+      })
+      .addCase(flightList.rejected, (state) => {
+        state.pending = false;
+        state.error = true;
+      });
   },
 });
-
-export const { flightListFailure, flightListRequest, flightListSuccess } =
-  flightListSlice.actions;
 
 export default flightListSlice.reducer;

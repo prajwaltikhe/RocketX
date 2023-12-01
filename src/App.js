@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import { Flights } from './components/Flights';
 import { flightList } from './redux/flightListSlice';
 import { Loader } from './components/utils/Loader';
@@ -26,11 +26,11 @@ const App = () => {
   });
 
   return (
-    <>
-      <div className="container">
-        <h1 className="head">RocketX</h1>
-        <div className="row justify-content-center search mx-auto">
-          <input
+    <Container>
+      <h1 className="head">RocketX</h1>
+      <Row className="justify-content-center search mx-auto">
+        <Col xs={12}>
+          <Form.Control
             className="searchbar"
             type="text"
             placeholder="Search flight missions..."
@@ -38,16 +38,16 @@ const App = () => {
               setSearchFlights(e.target.value);
             }}
           />
-        </div>
-        {pending ? (
-          <Loader />
-        ) : error ? (
-          <Alerts variant="danger">{error}</Alerts>
-        ) : (
-          <Flights filteredFlights={filteredFlights} />
-        )}
-      </div>
-    </>
+        </Col>
+      </Row>
+      {pending ? (
+        <Loader />
+      ) : error ? (
+        <Alerts variant="danger">{error}</Alerts>
+      ) : (
+        <Flights filteredFlights={filteredFlights} />
+      )}
+    </Container>
   );
 };
 

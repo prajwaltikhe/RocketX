@@ -1,9 +1,15 @@
-import React from "react";
+import Alert from 'react-bootstrap/Alert';
+import PropTypes from 'prop-types';
 
 export const Alerts = ({ variant, children }) => {
   return (
-    <div className={`alert alert-${variant}`} role="alert">
+    <Alert variant={variant}>
       <strong>{children}</strong>
-    </div>
+    </Alert>
   );
+};
+
+Alerts.propTypes = {
+  variant: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };

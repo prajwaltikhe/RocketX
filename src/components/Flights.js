@@ -1,18 +1,16 @@
-import { Fragment } from "react";
-import { Card } from "../components/Card";
-import { Modal } from "../components/Modal";
+import { Container, Row, Col } from 'react-bootstrap';
+import { FlightCard } from '../components/Card';
 
 export const Flights = ({ filteredFlights }) => {
   return (
-    <>
-      <div className="row mt-4">
+    <Container className="mt-4">
+      <Row>
         {filteredFlights.map((flight) => (
-          <Fragment>
-            <Card flight={flight} />
-            <Modal flight={flight} />
-          </Fragment>
+          <Col sm={4} key={flight.flight_number}>
+            <FlightCard flight={flight} />
+          </Col>
         ))}
-      </div>
-    </>
+      </Row>
+    </Container>
   );
 };

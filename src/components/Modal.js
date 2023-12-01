@@ -1,75 +1,88 @@
-export const Modal = ({ flight }) => {
+import { Modal, Row, Col, Button, ListGroup } from 'react-bootstrap';
+import { useState } from 'react';
+
+export const FlightModal = ({ flight }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
+
   return (
-    <div
-      className="modal fade"
-      id={`popup${flight.flight_number}`}
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">
-              {flight.mission_name} Mission ({flight.launch_year})
-            </h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        View More
+      </Button>
+
+      <Modal show={showModal} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title id={`popup${flight.flight_number}`}>
+            {flight.mission_name} Mission ({flight.launch_year})
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Row>
+            <Col md={6}>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <strong>Flight number:</strong> {flight.flight_number}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Rocket name:</strong> {flight.rocket.rocket_name}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Rocket type:</strong> {flight.rocket.rocket_type}
+                </ListGroup.Item>
+              </ListGroup>
+            </Col>
+            <Col md={6}>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <strong>Status:</strong>{' '}
+                  {flight.launch_success ? 'Success' : 'Failure'}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Upcoming:</strong> {flight.upcoming ? 'Yes' : 'No'}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Launched on:</strong>{' '}
+                  {flight.launch_date_local.substring(0, 10)}
+                </ListGroup.Item>
+              </ListGroup>
+            </Col>
+            <span>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <strong>Launch site:</strong> <br />
+                  {flight.launch_site.site_name_long}
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <strong>Details:</strong> <br />
+                  {flight.details === null ? 'NA' : flight.details}
+                </ListGroup.Item>
+              </ListGroup>
+            </span>
+          </Row>
+          <div className="text-center mt-2">
+            <Row>
+              <Col>
+                <a className="references" href={flight.links.wikipedia}>
+                  <i className="fa-brands fa-wikipedia-w"></i> Document
+                </a>
+              </Col>
+              <Col>
+                <a className="references" href={flight.links.video_link}>
+                  <i className="fa-brands fa-youtube"></i> Video
+                </a>
+              </Col>
+              <Col>
+                <a className="references" href={flight.links.article_link}>
+                  <i className="fa-solid fa-newspaper"></i> Articles
+                </a>
+              </Col>
+            </Row>
           </div>
-          <div className="modal-body">
-            <strong>Flight number: </strong>
-            {flight.flight_number}
-            <br />
-            <strong>Rocket name: </strong>
-            {flight.rocket.rocket_name}
-            <br />
-            <strong>Rocket type: </strong>
-            {flight.rocket.rocket_type}
-            <br />
-            <strong>Launched on: </strong>
-            {flight.launch_date_local.substring(0, 10)}
-            <br />
-            <strong>Launch site: </strong>
-            {flight.launch_site.site_name_long}
-            <br />
-            <strong> Status: </strong>
-            {flight.launch_success === true ? "Success" : "Failure"}
-            <br />
-            <strong> Upcoming: </strong>
-            {flight.upcoming === false ? "No" : "Yes"}
-            <br />
-            <strong> Details: </strong>
-            {flight.details === null ? "NA" : flight.details}
-            <br />
-            <div className="text-center mt-2">
-              <div className="row">
-                <div className="col-4">
-                  <a className="references" href={`${flight.links.wikipedia}`}>
-                    <i class="fa-brands fa-wikipedia-w"></i> Wikipedia
-                  </a>
-                </div>
-                <div className="col-4">
-                  <a className="references" href={`${flight.links.video_link}`}>
-                    <i class="fa-brands fa-youtube"></i> Youtube
-                  </a>
-                </div>
-                <div className="col-4">
-                  <a
-                    className="references"
-                    href={`${flight.links.article_link}`}
-                  >
-                    <i class="fa-solid fa-newspaper"></i> Articles
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
