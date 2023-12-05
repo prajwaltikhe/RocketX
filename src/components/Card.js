@@ -1,4 +1,3 @@
-import React from 'react';
 import { Row, Col, Card, Image, ListGroup } from 'react-bootstrap';
 import { FlightModal } from './Modal';
 

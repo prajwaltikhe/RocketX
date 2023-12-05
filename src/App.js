@@ -9,7 +9,9 @@ import { Alerts } from './components/utils/Alerts';
 const App = () => {
   const [searchFlights, setSearchFlights] = useState('');
 
-  const { flights, pending, error } = useSelector((state) => state.flightList);
+  const { flights, pending, error } = useSelector(
+    ({ flightList }) => flightList
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,15 +30,13 @@ const App = () => {
   return (
     <Container>
       <h1 className="head">RocketX</h1>
-      <Row className="justify-content-center search mx-auto">
+      <Row className="d-flex align-items-center justify-content-center search mx-auto">
         <Col xs={12}>
           <Form.Control
             className="searchbar"
             type="text"
             placeholder="Search flight missions..."
-            onChange={(e) => {
-              setSearchFlights(e.target.value);
-            }}
+            onChange={(e) => setSearchFlights(e.target.value)}
           />
         </Col>
       </Row>

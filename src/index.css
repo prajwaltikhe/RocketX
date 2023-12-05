@@ -1,8 +1,12 @@
-.App {
+/* App styles */
+.App,
+body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+/* Global styles*/
 body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,17 +14,9 @@ body {
   background: #283e51;
   background: -webkit-linear-gradient(to top, #283e51, #0a2342);
   background: linear-gradient(to top, #283e51, #0a2342);
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
+/* Headings style */
 .head {
   font-family: 'Playfair Display', serif;
   font-size: 3.2rem;
@@ -29,44 +25,52 @@ code {
   margin: 1.25rem 0;
 }
 
+/* Search container */
 .search {
-  max-width: 400px;
+  max-width: 450px;
   margin: 0 auto;
 }
 
+/* Search bar input */
 .searchbar {
   height: 3rem;
   font-size: 1rem;
-  padding-left: 0.625rem;
   width: 100%;
+  padding-left: 0.625rem;
   box-sizing: border-box;
 }
 
+/* Card container */
 .card {
   margin-bottom: 2rem;
 }
 
+/* Card image styles */
 .card img {
-  display: block;
   width: 50%;
+  display: block;
   margin: 0 auto;
 }
 
+/* Card title styles */
 .card-title {
   font-family: 'Playfair Display', serif;
 }
 
+/* Links styles */
 .references {
   text-decoration: none;
   color: #007bff;
 }
 
+/* Loading spinner styles */
 .spinner-border {
   width: 4rem;
   height: 4rem;
   margin: 2rem auto;
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
   .search {
     max-width: 100%;

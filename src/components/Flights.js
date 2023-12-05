@@ -6,7 +6,7 @@ export const Flights = ({ filteredFlights }) => {
     <Container className="mt-4">
       <Row>
         {filteredFlights.map((flight) => (
-          <Col sm={4} key={flight.flight_number}>
+          <Col lg={4} key={flight.flight_number}>
             <FlightCard flight={flight} />
           </Col>
         ))}
