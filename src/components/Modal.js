@@ -1,5 +1,6 @@
 import { Modal, Row, Col, Button, ListGroup } from 'react-bootstrap';
 import { useState } from 'react';
+import {FaNewspaper, FaYoutube, FaWikipediaW} from "react-icons/fa";
 
 export const FlightModal = ({ flight }) => {
   const [showModal, setShowModal] = useState(false);
@@ -66,17 +67,17 @@ export const FlightModal = ({ flight }) => {
             <Row>
               <Col>
                 <a className="references" href={flight.links.wikipedia}>
-                  <i className="fa-brands fa-wikipedia-w"></i> Document
+                  <FaWikipediaW/> Document
                 </a>
               </Col>
               <Col>
                 <a className="references" href={flight.links.video_link}>
-                  <i className="fa-brands fa-youtube"></i> Video
+                  <FaYoutube/> Video
                 </a>
               </Col>
               <Col>
                 <a className="references" href={flight.links.article_link}>
-                  <i className="fa-solid fa-newspaper"></i> Articles
+                  <FaNewspaper/> Articles
                 </a>
               </Col>
             </Row>
