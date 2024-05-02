@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Proza+Libre:wght@600&display=swap");
+    
 /* App styles */
 .App,
 body {
@@ -68,6 +70,12 @@ body {
   width: 4rem;
   height: 4rem;
   margin: 2rem auto;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive styles */

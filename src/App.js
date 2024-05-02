@@ -30,7 +30,7 @@ const App = () => {
   return (
     <Container>
       <h1 className="head">RocketX</h1>
-      <Row className="d-flex align-items-center justify-content-center search mx-auto">
+      <Row className="flex search mx-auto">
         <Col xs={12}>
           <Form.Control
             className="searchbar"
