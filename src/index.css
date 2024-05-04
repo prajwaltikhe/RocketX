@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Proza+Libre:wght@600&display=swap");
-    
+
 /* App styles */
 .App,
 body {
@@ -72,7 +72,7 @@ body {
   margin: 2rem auto;
 }
 
-.flex{
+.flex {
   display: flex;
   align-items: center;
   justify-content: center;
